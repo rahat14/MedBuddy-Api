@@ -38,12 +38,22 @@ dependencies {
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
 
-    implementation("org.jetbrains.exposed:exposed-core:0.61.0") // ORM Core
-    implementation("org.jetbrains.exposed:exposed-dao:0.61.0")  // DAO Support
-    implementation("org.jetbrains.exposed:exposed-jdbc:0.61.0") // JDBC support
-    implementation("com.zaxxer:HikariCP:6.3.0")  // Connection Pooling
+    implementation(libs.exposed.core)
+    implementation(libs.exposed.jdbc)
+    implementation(libs.exposed.dao)
+    implementation(libs.exposed.java.time)
+    implementation(libs.exposed.kotlin.datetime)
 
+    implementation(libs.hikari)
+    implementation(libs.bcrypt)
+    implementation(libs.kotlinx.datetime)
     implementation("io.github.cdimascio:dotenv-kotlin:6.5.1")
+
+    implementation(libs.koin.ktor)
+    implementation(libs.koin.core)
+    implementation(libs.koin.logger)
+    implementation(libs.ktor.server.call.logging)
+    implementation(libs.ktor.serialization.gson)
 
 
 }
