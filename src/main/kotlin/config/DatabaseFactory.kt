@@ -1,13 +1,19 @@
 package com.syntex_error.config
+import com.syntex_error.database.tables.UserTable
 import io.github.cdimascio.dotenv.dotenv
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.StdOutSqlLogger
+import org.jetbrains.exposed.sql.SchemaUtils.create
+import org.jetbrains.exposed.sql.addLogger
+import org.jetbrains.exposed.sql.transactions.transaction
 
 
 object DatabaseFactory {
     fun init() {
         Database.connect(hikari())
+        configureDataBase()
     }
 
     private fun hikari(): HikariDataSource {
@@ -24,5 +30,14 @@ object DatabaseFactory {
             validate()
         }
         return HikariDataSource(config)
+    }
+}
+
+fun configureDataBase() {
+    transaction {
+        addLogger(StdOutSqlLogger)
+        create(
+            UserTable
+        )
     }
 }
