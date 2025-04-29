@@ -55,5 +55,13 @@ dependencies {
     implementation(libs.ktor.server.call.logging)
     implementation(libs.ktor.serialization.gson)
 
+    implementation(libs.valiktor.core)
+    implementation(libs.commons.io)
+    implementation(libs.commons.email)
+    implementation(libs.ktor.server.status.pages)
+    implementation(libs.ktor.swagger.ui)
+    implementation(libs.ktor.server.request.validation)
+    implementation(libs.ktor.open.api)
+
 
 }

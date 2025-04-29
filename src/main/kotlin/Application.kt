@@ -13,9 +13,11 @@ fun main() {
         DatabaseFactory.init()
         configureBasic()
         configureKoin()
+        configureRequestValidation()
         configureHTTP()
         configureSerialization()
         //configureDatabases()
+        configureStatusPage()
         configureSecurity()
         configureRouting()
 
